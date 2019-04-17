@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>操作管理</title>
+    <link rel="stylesheet" href="css/w3.css"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap-table.css"/>
+    <link rel="stylesheet" type="text/css" href="css/zTreeStyle/zTreeStyle.css"/>
+    <link rel="stylesheet" href="css/toastr.css"/>
+    <link rel="stylesheet" href="css/bootstrap-treeview.min.css"/>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-table.js"></script>
+    <script src="js/bootstrap-table-zh-CN.js"></script>
+    <script src="js/ztree/jquery.ztree.core.js"></script>
+    <script src="js/ztree/jquery.ztree.excheck.js"></script>
+    <script src="js/ztree/jquery.ztree.exedit.js"></script>
+    <script src="js/toastr.min.js"></script>
+    <script src="js/bootstrap-treeview.min.js"></script>
+    <!-- custom js -->
+    <script src="js/index.js"></script>
+    <script src="js/custom/operation.js"></script>
+
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="w3-sidebar w3-bar-block w3-black" style="display: none" id="sidebar">
+    <button class="w3-bar-item w3-button" style="height:52px;text-align:center" onclick="w3_close()">
+        <span class="glyphicon glyphicon glyphicon-remove"></span>
+    </button>
+    <div id="menuBars"></div>
+</div>
+
+<!-- navigator -->
+<nav class="navbar navbar-inverse" style="border-radius: 0">
+    <div class="navbar-header">
+        <span onclick="w3_open()" class="navbar-brand glyphicon glyphicon-menu-hamburger" style="width: 70px"></span>
+    </div>
+    <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout </a></li>
+    </ul>
+</nav>
+
+<!-- pageContent -->
+<div id="pageContent">
+    <!-- table -->
+    <div class="container">
+        <div id="toolbar">
+            <button id="btn_add" type="button" class="btn btn-default" data-toggle="modal" data-taget="#modal_add">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>初始化
+            </button>
+            <button id="btn_del" type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除
+            </button>
+        </div>
+        <table id="table"></table>
+    </div>
+</div>
+
+<!-- 删除确认 -->
+<div id="modal_del" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 style="text-align: center">确定要删除么？</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="deleteOperation()">确定
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="operationTreeContent" class="treeContent" style="visibility:hidden;position: absolute;z-index:9999;">
+    <ul id="operationTree" class="ztree" style="margin-top:0; width:160px;"></ul>
+</div>
+
+</body>
+
+<script>
+    // 加载导航栏
+    loadMenuBar();
+    // init table
+    initTable();
+</script>
+</html>

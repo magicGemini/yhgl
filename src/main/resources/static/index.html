@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>index</title>
+    <link rel="stylesheet" href="css/w3.css"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap-table.css"/>
+    <link rel="stylesheet" href="css/toastr.css"/>
+    <link rel="stylesheet" href="css/bootstrap-treeview.min.css"/>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-table.js"></script>
+    <script src="js/bootstrap-table-zh-CN.js"></script>
+    <script src="js/toastr.min.js"></script>
+    <script src="js/bootstrap-treeview.min.js"></script>
+    <!-- custom js -->
+    <script src="js/index.js"></script>
+</head>
+<body>
+
+<div>
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-bar-block w3-black" style="display: none" id="sidebar">
+        <button class="w3-bar-item w3-button" style="height:52px;text-align:center" onclick="w3_close()">
+            <span class="glyphicon glyphicon glyphicon-remove"></span>
+        </button>
+        <div id="menuBars"></div>
+    </div>
+
+    <!-- navigator -->
+    <nav class="navbar navbar-inverse" style="border-radius: 0">
+        <div class="navbar-header">
+            <span onclick="w3_open()" class="navbar-brand glyphicon glyphicon-menu-hamburger" style="width: 70px">
+            </span>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout </a></li>
+        </ul>
+    </nav>
+
+    <!-- pageContent -->
+    <div id="pageContent">
+        index~~~
+    </div>
+</div>
+
+<script>
+    loadMenuBar();
+</script>
+
+</body>
+</html>

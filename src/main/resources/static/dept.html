@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>组织机构管理</title>
+    <link rel="stylesheet" href="css/w3.css"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap-table.css"/>
+    <link rel="stylesheet" type="text/css" href="css/zTreeStyle/zTreeStyle.css"/>
+    <link rel="stylesheet" href="css/toastr.css"/>
+    <link rel="stylesheet" href="css/bootstrap-treeview.min.css"/>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-table.js"></script>
+    <script src="js/bootstrap-table-zh-CN.js"></script>
+    <script src="js/ztree/jquery.ztree.core.js"></script>
+    <script src="js/ztree/jquery.ztree.excheck.js"></script>
+    <script src="js/ztree/jquery.ztree.exedit.js"></script>
+    <script src="js/toastr.min.js"></script>
+    <script src="js/bootstrap-treeview.min.js"></script>
+    <!-- custom js -->
+    <script src="js/index.js"></script>
+    <script src="js/custom/dept.js"></script>
+</head>
+<body>
+
+<div>
+    <!-- Sidebar -->
+    <div id="sidebar" class="w3-sidebar w3-bar-block w3-black" style="display: none">
+        <button class="w3-bar-item w3-button" style="height:52px;text-align:center" onclick="w3_close()">
+            <span class="glyphicon glyphicon glyphicon-remove"></span>
+        </button>
+        <div id="menuBars"></div>
+    </div>
+
+    <!-- navigator -->
+    <nav class="navbar navbar-inverse" style="border-radius: 0">
+        <div class="navbar-header">
+            <span onclick="w3_open()" class="navbar-brand glyphicon glyphicon-menu-hamburger"
+                  style="width: 70px"></span>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout </a></li>
+        </ul>
+    </nav>
+
+    <!-- pageContent -->
+    <div id="pageContent">
+        <div class="row">
+            <!-- tree -->
+            <div class="col-lg-2" style="padding-left: 30px">
+                <ul id="tree" class="ztree"></ul>
+            </div>
+            <!-- table -->
+            <div class="col-lg-8">
+                <div class="container">
+                    <div id="toolbar">
+                        <button id="btn_init" type="button" class="btn btn-default" data-toggle="modal"
+                                data-taget="#modal_add">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>初始化
+                        </button>
+                    </div>
+                    <table id="table"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 右键菜单 -->
+    <div id="rMenu">
+        <ul>
+            <li id="m_add" onclick="addTreeNode();">增加节点</li>
+            <li id="m_del" onclick="removeTreeNode();">删除节点</li>
+        </ul>
+    </div>
+
+    <!-- 新增用户modal -->
+    <div id="modal_add" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">新增</h3>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                                <label for="name_add">部门名称</label>
+                                <input type="text" class="form-control" id="name_add"/>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="shortName_add">部门简称</label>
+                                <input type="text" class="form-control" id="shortName_add"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <label for="parentId_add">上级部门</label>
+                                <input type="text" readonly="readonly" class="form-control" id="parentId_add"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button id="dept_add_submit" type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // 加载导航栏
+    loadMenuBar();
+    // init table
+    initTable();
+    // init tree
+    initTree();
+</script>
+<style>
+    div#rMenu {
+        position: absolute;
+        visibility: hidden;
+        top: 0;
+        background-color: #555;
+        text-align: left;
+        padding: 2px;
+    }
+
+    div#rMenu ul {
+        margin-left: -40px;
+        margin-top: 0px;
+        margin-bottom: 0px
+    }
+
+    div#rMenu ul li {
+        margin: 1px 0;
+        padding: 0 5px;
+        cursor: pointer;
+        list-style: none outside none;
+        background-color: #DFDFDF;
+    }
+</style>
+</body>
+</html>

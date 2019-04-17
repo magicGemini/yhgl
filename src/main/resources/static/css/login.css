@@ -1,0 +1,29 @@
+body{
+    background: url("../img/1.jpg");
+    background-size: cover;
+    animation-name:myfirst;
+    animation-duration:25s;
+    /*变换时间*/
+    animation-delay:5s;
+    /*动画开始时间*/
+    animation-iteration-count:infinite;
+    /*下一周期循环播放*/
+    animation-play-state:running;
+    /*动画开始运行*/
+}
+@keyframes myfirst
+{
+    0%   {background:url("../img/1.jpg");background-size: cover;}
+    20%  {background:url("../img/2.jpg");background-size: cover;}
+    40%  {background:url("../img/3.jpg");background-size: cover;}
+    60%  {background:url("../img/4.jpg");background-size: cover;}
+    80%  {background:url("../img/5.jpg");background-size: cover;}
+    100%   {background:url("../img/1.jpg");background-size: cover;}
+}
+
+.form{background: rgba(255,255,255,0.2);width:400px;margin:120px auto;}
+/*阴影*/
+.fa{display: inline-block;top: 27px;left: 6px;position: relative;color: #ccc;}
+input[type="text"],input[type="password"]{padding-left:26px;}
+.checkbox{padding-left:21px;}
+#login_form > div > div.form-group.col-md-offset-9 > p{ font-style:italic; color: red;}

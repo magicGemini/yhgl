@@ -1,0 +1,20 @@
+server:
+  port: 8087
+
+spring:
+  datasource:
+    driver-class-name: com.oscar.Driver
+    url: jdbc:oscar://172.18.3.101:2004/DFDB?charset=utf-8
+    username: DFUSER
+    password: 123456
+  mvc:
+    favicon:
+      enabled: true
+  thymeleaf:
+    mode: HTML
+    encoding: UTF-8
+    cache: false
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: false
